@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import { Eye, EyeOff, Mail, Lock, User, Shield, Building2 } from "lucide-react";
+import { Eye, EyeOff, Mail, Lock, User, Shield, Building2, HelpCircle } from "lucide-react";
 import { useAuth } from "../context/AuthProvider";
 import "../styles/login-only.css";
 
@@ -132,8 +132,6 @@ export default function LoginPage() {
           Sign in as a super admin or gym owner to continue
         </p>
 
-       
-
         {submitError ? (
           <div className="login-alert" role="alert">
             {submitError}
@@ -203,6 +201,22 @@ export default function LoginPage() {
         <button type="submit" className="login-btn" disabled={submitting}>
           {submitting ? "Signing In..." : "Sign In"}
         </button>
+
+        {/* 💎 FIXED ONE-LINE INLINE SUPPORT FOOTER */}
+        <div className="login-support-notice">
+          <p className="support-text">
+            If you want to register or reset your password, kindly contact your software admin with these details:
+          </p>
+          <div className="support-row-inline">
+            <a href="mailto:admin@gym-saas.app" className="support-link-item">
+              Email: <span>admin@gym-saas.app</span>
+            </a>
+            <span className="support-separator"> | </span>
+            <a href="https://wa.me/918868069884" target="_blank" rel="noopener noreferrer" className="support-link-item">
+              WhatsApp: <span>+91 88680 69884</span>
+            </a>
+          </div>
+        </div>
       </form>
     </div>
   );
