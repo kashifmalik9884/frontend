@@ -219,9 +219,15 @@
   padding-right: 48px !important;
 }
 
+/* ==========================================================================
+   👁️ STABLE PASSWORD TOGGLE EYE BUTTON (NO SHIFT ON HOVER)
+   ========================================================================== */
+
 .password-toggle {
   position: absolute !important;
   right: 6px !important;
+  top: 50% !important;
+  transform: translateY(-50%) !important; /* Locks it precisely in the vertical center */
   width: 40px !important;
   height: 40px !important;
   display: grid !important;
@@ -231,12 +237,23 @@
   background: transparent !important;
   color: var(--login-text-muted) !important;
   cursor: pointer !important;
-  transition: all var(--login-transition) !important;
+  box-shadow: none !important; /* Prevents global button glow shadows */
+  padding: 0 !important;
+  transition: color var(--login-transition), background-color var(--login-transition) !important; /* Only animate color changes */
 }
 
 .password-toggle:hover {
   background: rgba(148, 163, 184, 0.1) !important;
   color: #ffffff !important;
+  /* Hard reset to prevent ANY global button hover shifts or animations */
+  transform: translateY(-50%) scale(1) !important; 
+  filter: none !important;
+  box-shadow: none !important;
+}
+
+.password-toggle:active {
+  /* Keeps it perfectly centered even when clicked */
+  transform: translateY(-50%) scale(1) !important;
 }
 
 .field-error {
